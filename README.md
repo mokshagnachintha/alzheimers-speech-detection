@@ -1,10 +1,10 @@
-# Alzheimer's Disease Detection via Speech Analysis
+﻿# Alzheimer's Disease Detection via Speech Analysis
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-## 🚀 Live Demo
+## ðŸš€ Live Demo
 
 **Try our system now**: [**AD Track - Live Speech Analysis Platform**](https://adtrack.onrender.com/)
 
@@ -12,22 +12,29 @@ Upload an audio file of someone describing the Cookie Theft image and get instan
 
 ---
 
-## � Demo Video Walkthrough
+## ï¿½ Demo Video Walkthrough
 
-**Watch our comprehensive video tutorial** showing the entire system in action:
+<details open>
+<summary><strong> Demo Video - Click to Play (Auto-Playing Below)</strong></summary>
 
-### ▶️ [Click to Watch Demo Video (Auto-Playing)](https://mokshagnachintha.github.io/alzheimers-speech-detection/video-player.html)
+<div align="center">
+
+<iframe width="100%" height="600" src="https://mokshagnachintha.github.io/alzheimers-speech-detection/video-player.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 8px; max-width: 900px;"></iframe>
+
+</div>
 
 **In this video, you'll see:**
-- 🎤 How to upload audio files to the live platform
-- 📊 Real-time Alzheimer's risk assessment results
-- 📈 Model comparison across different approaches
-- 🔍 Feature importance and explainability analysis
-- 💡 Practical use cases and interpretation guide
+-  How to upload audio files to the live platform
+-  Real-time Alzheimer's risk assessment results
+-  Model comparison across different approaches
+-  Feature importance and explainability analysis
+-  Practical use cases and interpretation guide
+
+</details>
 
 ---
 
-## �📋 Overview
+## ï¿½ðŸ“‹ Overview
 
 This repository contains a **state-of-the-art multimodal deep learning system** for detecting Alzheimer's Disease and Dementia from speech patterns. The project implements two complementary approaches:
 
@@ -41,7 +48,7 @@ The system analyzes the **Pitt Corpus (Cookie Theft Task)** dataset, achieving r
 
 ---
 
-## 🎯 Key Features & Innovations
+## ðŸŽ¯ Key Features & Innovations
 
 ### 1. **Comprehensive Model Comparison**
 - **Traditional ML** (4 models): SVM, Random Forest, Naive Bayes, Logistic Regression
@@ -74,27 +81,27 @@ Each model tested across:
 
 ---
 
-## 📊 Model Architecture
+## ðŸ“Š Model Architecture
 
 ### Multimodal System (Tri-Branch Fusion)
 
 ```
 Text Input          Audio Input         Linguistic Features
-    ↓                   ↓                      ↓
+    â†“                   â†“                      â†“
 DeBERTa             Vision Transformer   MLP + Adapter
-    ↓                   ↓                      ↓
+    â†“                   â†“                      â†“
 BiLSTM            Spectro (64-dim)       (64-dim each)
-    ↓                   ↓                      ↓
-├─ Multi-Head Self-Attention (learns inter-modal correlations)
-    ↓
+    â†“                   â†“                      â†“
+â”œâ”€ Multi-Head Self-Attention (learns inter-modal correlations)
+    â†“
 Fusion (192-dim embedding)
-    ↓
-Classification → [Control | Dementia]
+    â†“
+Classification â†’ [Control | Dementia]
 ```
 
 ---
 
-## 📊 Results & Performance
+## ðŸ“Š Results & Performance
 
 ### Model Comparison Summary
 | Model | Text Accuracy | Audio Accuracy | Multimodal Accuracy |
@@ -109,15 +116,15 @@ Classification → [Control | Dementia]
 | Ensemble | 0.88 | 0.73 | 0.91 |
 
 ### Multimodal System Metrics (5-Fold CV)
-- **Accuracy**: 93.2% ± 2.1%
+- **Accuracy**: 93.2% Â± 2.1%
 - **Precision**: 94.1% (Dementia), 92.8% (Control)
 - **Recall**: 91.5% (Dementia), 94.8% (Control)
-- **F1-Score**: 0.927 ± 0.018
-- **AUC-ROC**: 0.962 ± 0.013
+- **F1-Score**: 0.927 Â± 0.018
+- **AUC-ROC**: 0.962 Â± 0.013
 
 ---
 
-## 🚀 Installation & Setup
+## ðŸš€ Installation & Setup
 
 ### Prerequisites
 ```bash
@@ -148,7 +155,7 @@ OUTPUT_PATH = r"./results"
 
 ---
 
-## 📖 Usage
+## ðŸ“– Usage
 
 ### 1. **Run Model Comparison Pipeline**
 ```bash
@@ -178,7 +185,7 @@ Visit: **[AD Track - https://adtrack.onrender.com/](https://adtrack.onrender.com
 
 ---
 
-## 📚 Documentation
+## ðŸ“š Documentation
 
 ### Notebooks
 
@@ -207,7 +214,7 @@ Visit: **[AD Track - https://adtrack.onrender.com/](https://adtrack.onrender.com
 
 ---
 
-## 🔧 Advanced Usage
+## ðŸ”§ Advanced Usage
 
 ### Custom Feature Engineering
 ```python
@@ -245,7 +252,7 @@ shap.summary_plot(shap_values, test_data)
 
 ---
 
-## 🐛 Issues & Support
+## ðŸ› Issues & Support
 
 - **Bug Reports**: [GitHub Issues](https://github.com/mokshagnachintha/alzheimers-speech-detection/issues)
 - **Questions**: [GitHub Discussions](https://github.com/mokshagnachintha/alzheimers-speech-detection/discussions)
@@ -253,7 +260,7 @@ shap.summary_plot(shap_values, test_data)
 
 ---
 
-## 📖 References
+## ðŸ“– References
 
 1. Luz et al. (2021). Alzheimer's Disease Dementia Detection using Speech Analysis
 2. He et al. (2021). DeBERTa: Decoding-enhanced BERT with Disentangled Attention
@@ -263,7 +270,7 @@ shap.summary_plot(shap_values, test_data)
 
 ---
 
-## ⭐ Acknowledgments
+## â­ Acknowledgments
 
 - **Pitt Corpus**: DementiaBank, TalkBank, Carnegie Mellon University
 - **Frameworks**: PyTorch, Transformers (HuggingFace), scikit-learn, TensorFlow
@@ -273,10 +280,11 @@ shap.summary_plot(shap_values, test_data)
 
 <div align="center">
 
-**Made with 💙 for dementia research and clinical diagnostics**
+**Made with ðŸ’™ for dementia research and clinical diagnostics**
 
 [**Try AD Track Live Demo**](https://adtrack.onrender.com/) | [**View Repository**](https://github.com/mokshagnachintha/alzheimers-speech-detection)
 
 Last Updated: February 2026 | Status: Active Development
 
 </div>
+
