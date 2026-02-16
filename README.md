@@ -238,14 +238,6 @@ print(f"Dementia Risk: {probability[0, 1]:.2%}")
    - Explainability analysis (SHAP values)
    - Best for: Building production-ready dementia detection systems
 
-### Research Paper
-[RESEARCH_PAPER.docx](RESEARCH_PAPER.docx) - Comprehensive analysis of:
-- Literature review on dementia detection methods
-- Detailed architecture descriptions
-- Experimental methodology
-- Statistical significance testing
-- Clinical implications and limitations
-
 ### Demo & Walkthrough
 [DEMO_WALKTHROUGH.mp4](DEMO_WALKTHROUGH.mp4) - Video tutorial showing:
 - How to use the notebooks
@@ -308,7 +300,6 @@ alzheimers-speech-detection/
 ├── README.md                          # Main documentation
 ├── model-comparison.ipynb             # 16-model evaluation
 ├── multimodal-dementia-detection.ipynb# Tri-branch system
-├── RESEARCH_PAPER.docx                # Academic paper
 ├── DEMO_WALKTHROUGH.mp4               # Video tutorial
 │
 ├── models/
@@ -424,11 +415,16 @@ Contributions are welcome! Please follow these guidelines:
 
 ---
 
+## � Team
+
+This project is maintained by:
+- **Rashmitha P Shetty** - [@rashmithapshetty](https://github.com/rashmithapshetty)
+
 ## 🐛 Issues & Support
 
 - **Report bugs**: [GitHub Issues](https://github.com/yourusername/alzheimers-speech-detection/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/yourusername/alzheimers-speech-detection/discussions)
-- **Contact**: your.email@domain.com
+- **GitHub**: [@rashmithapshetty](https://github.com/rashmithapshetty)
 
 ---
 

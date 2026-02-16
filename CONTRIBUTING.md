@@ -334,7 +334,13 @@ def function_name(param1: Type1, param2: Type2) -> ReturnType:
 
 - **Issues**: Open a GitHub issue for bugs/features
 - **Discussions**: Use GitHub Discussions for questions
+- **GitHub**: [@rashmithapshetty](https://github.com/rashmithapshetty)
 - **Email**: Contact maintainers at project email
+
+## Team
+
+This project is maintained by:
+- **Rashmitha P Shetty** - [@rashmithapshetty](https://github.com/rashmithapshetty)
 
 ## Recognition
 

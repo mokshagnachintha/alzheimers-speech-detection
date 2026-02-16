@@ -101,6 +101,10 @@ config.local.ini
 *secret*
 *token*
 
+# Unpublished research materials
+RESEARCH_PAPER.docx
+*.docx
+
 # Temporary model checkpoints (keep best only)
 checkpoints/*/
 !checkpoints/best/
