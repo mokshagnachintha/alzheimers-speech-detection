@@ -12,25 +12,22 @@ Upload an audio file of someone describing the Cookie Theft image and get instan
 
 ---
 
-## ï¿½ Demo Video Walkthrough
-
-<details open>
-<summary><strong> Demo Video - Click to Play (Auto-Playing Below)</strong></summary>
+##  Demo Video Walkthrough
 
 <div align="center">
 
-<iframe width="100%" height="600" src="https://mokshagnachintha.github.io/alzheimers-speech-detection/video-player.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 8px; max-width: 900px;"></iframe>
+### ▶️ **[WATCH DEMO VIDEO - PLAYS AUTOMATICALLY](https://mokshagnachintha.github.io/alzheimers-speech-detection/video-player.html)**
+
+[![Demo Thumbnail](https://img.shields.io/badge/🎬_24.5MB_Full_HD_Video-Click_to_Play-blue?style=for-the-badge&logo=github)](https://mokshagnachintha.github.io/alzheimers-speech-detection/video-player.html)
 
 </div>
 
 **In this video, you'll see:**
--  How to upload audio files to the live platform
--  Real-time Alzheimer's risk assessment results
--  Model comparison across different approaches
--  Feature importance and explainability analysis
--  Practical use cases and interpretation guide
-
-</details>
+- 🎤 How to upload audio files to the live platform
+- 📊 Real-time Alzheimer's risk assessment results
+- 📈 Model comparison across different approaches
+- 🔍 Feature importance and explainability analysis
+- 💡 Practical use cases and interpretation guide
 
 ---
 
