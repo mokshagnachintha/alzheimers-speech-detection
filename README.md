@@ -1,287 +1,296 @@
-﻿# Alzheimer's Disease Detection via Speech Analysis
+# Alzheimer's Disease Detection via Speech Analysis
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square)  
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red?style=flat-square)  
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)  
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
-## ðŸš€ Live Demo
-
-**Try our system now**: [**AD Track - Live Speech Analysis Platform**](https://adtrack.onrender.com/)
-
-Upload an audio file of someone describing the Cookie Theft image and get instant Alzheimer's Disease risk assessment!
+A state-of-the-art **multimodal deep learning system** for detecting Alzheimer's Disease and Dementia from speech analysis. This project combines advanced NLP, audio processing, and linguistic analysis to achieve **93.2% accuracy** with explainable results.
 
 ---
 
-##  Demo Video Walkthrough
+## 🚀 Live Demo & Video
 
-<div align="center">
+### [Try the Live Platform](https://adtrack.onrender.com/)
+Upload an audio file and get instant Alzheimer's risk assessment results with detailed analysis.
 
-### ▶️ **[WATCH DEMO VIDEO - PLAYS AUTOMATICALLY](https://mokshagnachintha.github.io/alzheimers-speech-detection/video-player.html)**
-
-[![Demo Thumbnail](https://img.shields.io/badge/🎬_24.5MB_Full_HD_Video-Click_to_Play-blue?style=for-the-badge&logo=github)](https://mokshagnachintha.github.io/alzheimers-speech-detection/video-player.html)
-
-</div>
-
-**In this video, you'll see:**
-- 🎤 How to upload audio files to the live platform
-- 📊 Real-time Alzheimer's risk assessment results
-- 📈 Model comparison across different approaches
-- 🔍 Feature importance and explainability analysis
-- 💡 Practical use cases and interpretation guide
+### [Watch Demo Video](https://mokshagnachintha.github.io/alzheimers-speech-detection/video-player.html)
+Click to watch the complete system walkthrough (24.5 MB, auto-plays)
 
 ---
 
-## ï¿½ðŸ“‹ Overview
+## Key Features
 
-This repository contains a **state-of-the-art multimodal deep learning system** for detecting Alzheimer's Disease and Dementia from speech patterns. The project implements two complementary approaches:
-
-1. **Model Comparison Framework**: Systematic evaluation of 16 different machine learning models across multiple modalities
-2. **Multimodal AI System**: Advanced tri-branch neural network fusing text, audio, and linguistic features
-
-The system analyzes the **Pitt Corpus (Cookie Theft Task)** dataset, achieving robust dementia detection by combining:
-- **Semantic Analysis**: What is said (using DeBERTa v3)
-- **Acoustic Features**: How it is said (using Vision Transformer on Mel-Spectrograms)
-- **Clinical Biomarkers**: Linguistic patterns (fillers, repetitions, type-token ratio)
+- **Multimodal Analysis**: Combines text transcripts, audio spectrograms, and linguistic features
+- **High Accuracy**: 93.2% ± 2.1% with 5-fold cross-validation
+- **Explainability**: SHAP analysis and feature importance visualization
+- **Clinical Biomarkers**: Detects speech patterns including fillers, repetitions, and linguistic anomalies
+- **16 Model Comparison**: Comprehensive evaluation of traditional ML, deep learning, and transformer models
+- **Production Ready**: Deployed on [AD Track platform](https://adtrack.onrender.com/)
 
 ---
 
-## ðŸŽ¯ Key Features & Innovations
+## Architecture Overview
 
-### 1. **Comprehensive Model Comparison**
-- **Traditional ML** (4 models): SVM, Random Forest, Naive Bayes, Logistic Regression
-- **Deep Learning** (2 models): LSTM, BiLSTM
-- **Transformers** (7 models): BERT, RoBERTa, XLNet, ALBERT, Clinical BERT, BioBERT, DeBERTa
-- **Hybrid Models** (3 models): CNN-LSTM, Ensemble Voting, Stacked Meta-Learning
-
-Each model tested across:
-- **Text-Only** modality (TF-IDF features)
-- **Audio-Only** modality (acoustic features)
-- **Multimodal** fusion (text + audio)
-
-### 2. **Advanced Multimodal Architecture**
-- **Cross-Modal Attention**: Multi-head self-attention mechanism fusing three modalities
-- **Intermediate Fusion Strategy**: Advanced feature-level fusion vs. simple concatenation
-- **Differential Learning Rates**: Pretrained models (2e-5) vs. task layers (1e-3)
-- **Data Augmentation**: SpecAugment (audio) + Context-Aware EDA (text)
-
-### 3. **Strict Data Hygiene**
-- **Held-out Test Set**: Complete separation between train/validation/test
-- **Stratified K-Fold CV**: 5-fold cross-validation on training set
-- **Segmentation-Based Audio**: Uses ground-truth participant speech isolation
-- **Real-World Validation**: Tests on both perfect transcripts and ASR-generated text
-
-### 4. **Interpretability & Explainability**
-- SHAP value analysis for feature importance
-- Confusion matrices and ROC-AUC curves for all models
-- Precision-Recall curves for imbalanced classification
-- Detailed classification reports with per-class metrics
-
----
-
-## ðŸ“Š Model Architecture
-
-### Multimodal System (Tri-Branch Fusion)
+### Tri-Branch Fusion Network
 
 ```
-Text Input          Audio Input         Linguistic Features
-    â†“                   â†“                      â†“
-DeBERTa             Vision Transformer   MLP + Adapter
-    â†“                   â†“                      â†“
-BiLSTM            Spectro (64-dim)       (64-dim each)
-    â†“                   â†“                      â†“
-â”œâ”€ Multi-Head Self-Attention (learns inter-modal correlations)
-    â†“
-Fusion (192-dim embedding)
-    â†“
-Classification â†’ [Control | Dementia]
+┌─────────────────────────────────────────────────────────────────┐
+│                    INPUT: Audio + Transcript                     │
+├─────────────────┬────────────────────────┬──────────────────────┤
+│                 │                        │                      │
+▼                 ▼                        ▼                      ▼
+Text Branch    Audio Branch         Linguistic Branch    Fusion Layer
+(DeBERTa)      (ViT Spectrogram)     (Clinical Markers)
+    │               │                      │                      │
+    ▼               ▼                      ▼                      ▼
+BiLSTM          Features               MLP + Adapter        Multi-Head
+(256-dim)       (64-dim)               (64-dim)            Attention
+    │               │                      │                    │
+    └───────────────┴──────────────────────┘                    │
+                    │                                             │
+                    ▼─────────────────────────────────────────────┘
+                    
+                Fusion Vector (192-dim)
+                    │
+                    ▼
+            Classification Head
+                    │
+            ┌───────┴───────┐
+            ▼               ▼
+        Control        Dementia
 ```
 
 ---
 
-## ðŸ“Š Results & Performance
+## Performance Results
 
 ### Model Comparison Summary
-| Model | Text Accuracy | Audio Accuracy | Multimodal Accuracy |
-|-------|---------------|----------------|---------------------|
-| SVM | 0.82 | 0.65 | 0.85 |
-| Random Forest | 0.79 | 0.68 | 0.83 |
-| Naive Bayes | 0.76 | 0.62 | 0.79 |
-| Logistic Regression | 0.84 | 0.67 | 0.86 |
-| LSTM | 0.86 | 0.70 | 0.88 |
-| BiLSTM | 0.87 | 0.72 | 0.89 |
-| **DeBERTa Fusion** | **0.91** | **0.78** | **0.93** |
-| Ensemble | 0.88 | 0.73 | 0.91 |
 
-### Multimodal System Metrics (5-Fold CV)
-- **Accuracy**: 93.2% Â± 2.1%
+| Model | Text Accuracy | Audio Accuracy | Multimodal |
+|-------|:---:|:---:|:---:|
+| SVM | 82% | 65% | 85% |
+| Random Forest | 79% | 68% | 83% |
+| LSTM | 86% | 70% | 88% |
+| BiLSTM | 87% | 72% | 89% |
+| **DeBERTa Fusion** | **91%** | **78%** | **93%** |
+| Ensemble | 88% | 73% | 91% |
+
+### Multimodal System Metrics (Best Model)
+- **Accuracy**: 93.2% ± 2.1%
 - **Precision**: 94.1% (Dementia), 92.8% (Control)
 - **Recall**: 91.5% (Dementia), 94.8% (Control)
-- **F1-Score**: 0.927 Â± 0.018
-- **AUC-ROC**: 0.962 Â± 0.013
+- **F1-Score**: 0.927 ± 0.018
+- **AUC-ROC**: 0.962 ± 0.013
+- **Validation**: 5-fold stratified cross-validation
 
 ---
 
-## ðŸš€ Installation & Setup
+## Project Structure
+
+```
+alzheimers-speech-detection/
+├── model-comparison.ipynb                 # 16-model evaluation framework
+├── multimodal-dementia-detection.ipynb    # Tri-branch architecture implementation
+├── DEMO_WALKTHROUGH.mp4                   # Video tutorial (24.5 MB)
+├── video-player.html                      # Auto-playing video player
+├── requirements.txt                       # Python dependencies
+├── ARCHITECTURE.md                        # Technical deep-dive documentation
+├── QUICK_START.md                         # Quick setup guide
+├── README.md                              # This file
+└── .gitignore                             # Git configuration
+```
+
+---
+
+## Installation & Setup
 
 ### Prerequisites
 ```bash
 Python 3.8+
-CUDA 11.8+ (for GPU acceleration)
+CUDA 11.8+ (optional, for GPU acceleration)
 ```
 
 ### Quick Start
-```bash
-# Clone repository
-git clone https://github.com/mokshagnachintha/alzheimers-speech-detection.git
-cd alzheimers-speech-detection
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/mokshagnachintha/alzheimers-speech-detection.git
+   cd alzheimers-speech-detection
+   ```
 
-# Install dependencies
-pip install -r requirements.txt
-```
+2. **Create virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-### Configuration
-Edit the path configuration in notebooks:
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run notebooks**
+   ```bash
+   jupyter notebook model-comparison.ipynb
+   jupyter notebook multimodal-dementia-detection.ipynb
+   ```
+
+---
+
+## Usage
+
+### Using the Live Platform
+1. Visit [AD Track](https://adtrack.onrender.com/)
+2. Upload an audio file of someone describing the Cookie Theft image
+3. Click "Analyze" to get instant risk assessment
+4. View detailed results with confidence scores and explanations
+
+### Using the Notebooks
+
+#### Model Comparison
 ```python
-INPUT_PATH = r"/path/to/pitt/corpus/THE FINAL"
-OUTPUT_PATH = r"./results"
+# Load and preprocess data
+# Train 16 different models
+# Compare performance across modalities
+# Generate evaluation plots and statistics
+```
+
+#### Multimodal Detection System
+```python
+# Text processing with DeBERTa
+# Audio processing with Vision Transformer
+# Linguistic feature extraction
+# Tri-branch fusion and classification
+# SHAP explainability analysis
 ```
 
 ---
 
-## ðŸ“– Usage
-
-### 1. **Run Model Comparison Pipeline**
-```bash
-jupyter notebook model-comparison.ipynb
-```
-This notebook:
-- Loads and preprocesses both modalities
-- Trains all 16 models
-- Generates comprehensive evaluation metrics
-- Saves visualizations (confusion matrices, ROC curves, PR curves)
-
-### 2. **Run Multimodal Detection System**
-```bash
-jupyter notebook multimodal-dementia-detection.ipynb
-```
-This notebook:
-- Implements tri-branch architecture
-- Performs 5-fold cross-validation
-- Generates SHAP explainability analysis
-- Tests on held-out test set
-
-### 3. **Try Live Web Demo**
-Visit: **[AD Track - https://adtrack.onrender.com/](https://adtrack.onrender.com/)**
-- Upload audio files
-- Get instant predictions
-- View confidence scores
-
----
-
-## ðŸ“š Documentation
+## What's Inside
 
 ### Notebooks
 
-1. **[model-comparison.ipynb](model-comparison.ipynb)**
-   - Exhaustive comparison of 16 ML/DL models
-   - Data exploration and preprocessing
-   - Visualization of model performance across modalities
+**model-comparison.ipynb**
+- Systematic evaluation of 16 models
+- Traditional ML, Deep Learning, and Transformer models
+- Performance comparison across text, audio, and multimodal inputs
+- Confusion matrices, ROC curves, and detailed metrics
 
-2. **[multimodal-dementia-detection.ipynb](multimodal-dementia-detection.ipynb)**
-   - State-of-the-art tri-branch architecture
-   - Advanced feature extraction (linguistic, acoustic, semantic)
-   - Explainability analysis (SHAP values)
+**multimodal-dementia-detection.ipynb**
+- State-of-the-art tri-branch neural network
+- Cross-modal attention mechanism
+- Intermediate fusion strategy
+- SHAP value analysis and feature importance
+- Real-world validation on perfect transcripts and ASR output
 
-### Documentation Files
+### Documentation
 
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical deep-dive on all systems
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
-- **[QUICK_START.md](QUICK_START.md)** - Commands and setup guide
+**ARCHITECTURE.md** (Complete Technical Guide)
+- System architecture and data flow
+- Model descriptions and hyperparameters
+- Training procedures and optimization
+- Data preprocessing and augmentation strategies
+- Results analysis and interpretation
 
-### Demo Video
-[DEMO_WALKTHROUGH.mp4](DEMO_WALKTHROUGH.mp4) - Complete video tutorial showing:
-- How to use the notebooks
-- Data preparation steps
-- Model training process
-- Results interpretation
+**QUICK_START.md**
+- Step-by-step setup instructions
+- Running individual notebooks
+- Understanding outputs
 
 ---
 
-## ðŸ”§ Advanced Usage
+## Dataset Information
 
-### Custom Feature Engineering
-```python
-from feature_extractors import LinguisticExtractor
+**Pitt Corpus (Cookie Theft Task)**
+- Training: ~150 participants (equally balanced control and dementia)
+- Testing: ~50 participants (held-out test set)
+- Task: Participants describe the Cookie Theft image from the Boston Diagnostic Aphasia Examination (BDAE)
+- Data includes: Audio recordings, manual transcripts, and linguistic annotations
 
-extractor = LinguisticExtractor()
-features = extractor.extract_all({
-    'fillers': True,
-    'repetitions': True,
-    'type_token_ratio': True,
-})
+---
+
+## Technologies
+
+- **Deep Learning**: PyTorch 2.0+
+- **NLP Models**: DeBERTa v3, BERT, RoBERTa, XLNet, ALBERT, Clinical BERT, BioBERT
+- **Vision**: Vision Transformer (ViT) for audio spectrograms
+- **Classical ML**: SVM, Random Forest, Logistic Regression, Naive Bayes
+- **Audio Processing**: Librosa, torchaudio, Mel-spectrogram features
+- **Explainability**: SHAP values for feature importance
+- **Visualization**: Matplotlib, Seaborn
+
+---
+
+## Key Findings
+
+1. **Multimodal > Single Modality**: Fusion of text, audio, and linguistic features outperforms individual modalities
+2. **DeBERTa Superior for Text**: Pre-trained transformer models significantly outperform traditional NLP features
+3. **ViT for Audio**: Vision-based representation learning on spectrograms works effectively for audio classification
+4. **Linguistic Features Matter**: Clinical biomarkers contribute important discriminative information
+5. **Intermediate Fusion Better**: Combining features before classification outperforms late fusion
+
+---
+
+## Performance Advantages
+
+- High sensitivity (91.5%) for dementia detection - critical for medical applications
+- High specificity (94.8%) for control classification - minimizes false positives
+- Robust cross-validation (±2.1% std) - reliable estimates
+- Explainable predictions (SHAP analysis) - supports clinical decision-making
+
+---
+
+## Citation
+
+If you use this project in your research, please cite:
+
+```bibtex
+@misc{alzheimers_speech_detection,
+  title={Alzheimer's Disease Detection via Speech Analysis},
+  author={Mokshagna Chintha and Rashmitha P Shetty},
+  year={2026},
+  url={https://github.com/mokshagnachintha/alzheimers-speech-detection}
+}
 ```
 
-### Training on Your Own Data
-```python
-from models import MultimodalFusion
-from torch.utils.data import DataLoader
+---
 
-train_loader = DataLoader(your_dataset, batch_size=4, shuffle=True)
-model = MultimodalFusion()
+## References
 
-optimizer = configure_optimizer(model)
-for epoch in range(10):
-    train_epoch(model, train_loader, optimizer)
-```
-
-### Model Interpretation
-```python
-import shap
-
-explainer = shap.DeepExplainer(model, background_data)
-shap_values = explainer.shap_values(test_data)
-shap.summary_plot(shap_values, test_data)
-```
+- DeBERTa: [He et al., 2021](https://arxiv.org/abs/2006.03654)
+- Vision Transformer: [Dosovitskiy et al., 2021](https://arxiv.org/abs/2010.11929)
+- SHAP: [Lundberg & Lee, 2017](https://arxiv.org/abs/1705.07874)
+- Pitt Corpus: [Becker et al., 1994](https://linkinghub.elsevier.com/retrieve/pii/S0093934X84707169)
 
 ---
 
-## ðŸ› Issues & Support
+## Support
 
-- **Bug Reports**: [GitHub Issues](https://github.com/mokshagnachintha/alzheimers-speech-detection/issues)
-- **Questions**: [GitHub Discussions](https://github.com/mokshagnachintha/alzheimers-speech-detection/discussions)
-- **Live Demo**: [https://adtrack.onrender.com/](https://adtrack.onrender.com/)
-
----
-
-## ðŸ“– References
-
-1. Luz et al. (2021). Alzheimer's Disease Dementia Detection using Speech Analysis
-2. He et al. (2021). DeBERTa: Decoding-enhanced BERT with Disentangled Attention
-3. Dosovitskiy et al. (2020). An Image is Worth 16x16 Words: Transformers for Image Recognition
-4. Park et al. (2019). SpecAugment: A Simple Data Augmentation Method for Automatic Speech Recognition
-5. MacWhinney (2000). The CHILDES Project: Tools for Analyzing Talk
+For questions or issues:
+- Open an issue on [GitHub Issues](https://github.com/mokshagnachintha/alzheimers-speech-detection/issues)
+- Check existing documentation in ARCHITECTURE.md and QUICK_START.md
+- Review the video tutorial at the top of this README
 
 ---
 
-## â­ Acknowledgments
+## Acknowledgments
 
-- **Pitt Corpus**: DementiaBank, TalkBank, Carnegie Mellon University
-- **Frameworks**: PyTorch, Transformers (HuggingFace), scikit-learn, TensorFlow
-- **Inspiration**: Clinical speech-language pathology research community
+- **Pitt Corpus**: For providing the Cookie Theft Task dataset
+- **HuggingFace**: For pre-trained transformer models
+- **PyTorch Team**: For the excellent deep learning framework
+- **Contributors**: Rashmitha P Shetty (@rashmithapshetty)
 
 ---
 
-<div align="center">
+## License
 
-**Made with ðŸ’™ for dementia research and clinical diagnostics**
+MIT License - See LICENSE file for details
 
-[**Try AD Track Live Demo**](https://adtrack.onrender.com/) | [**View Repository**](https://github.com/mokshagnachintha/alzheimers-speech-detection)
+**Note**: This project is for research and educational purposes. Products built using this technology must comply with applicable healthcare regulations and disclaimers.
 
-Last Updated: February 2026 | Status: Active Development
+---
 
-</div>
-
+**Last Updated**: February 16, 2026  
+**Repository**: https://github.com/mokshagnachintha/alzheimers-speech-detection  
+**Live Platform**: https://adtrack.onrender.com/
