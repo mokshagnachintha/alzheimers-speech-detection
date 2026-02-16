@@ -12,7 +12,24 @@ Upload an audio file of someone describing the Cookie Theft image and get instan
 
 ---
 
-## 📋 Overview
+## � Demo Video Walkthrough
+
+**Watch our comprehensive video tutorial** showing the entire system in action:
+
+[![Watch the Demo](https://img.shields.io/badge/▶_Watch_Full_Demo_-red?style=for-the-badge)](DEMO_WALKTHROUGH.mp4)
+
+📥 Download: [DEMO_WALKTHROUGH.mp4](DEMO_WALKTHROUGH.mp4) - Complete system walkthrough (24.5 MB)
+
+**In this video, you'll see:**
+- 🎤 How to upload audio files to the live platform
+- 📊 Real-time Alzheimer's risk assessment results
+- 📈 Model comparison across different approaches
+- 🔍 Feature importance and explainability analysis
+- 💡 Practical use cases and interpretation guide
+
+---
+
+## �📋 Overview
 
 This repository contains a **state-of-the-art multimodal deep learning system** for detecting Alzheimer's Disease and Dementia from speech patterns. The project implements two complementary approaches:
 
