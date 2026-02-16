@@ -16,9 +16,10 @@ Upload an audio file of someone describing the Cookie Theft image and get instan
 
 **Watch our comprehensive video tutorial** showing the entire system in action:
 
-[![Watch the Demo](https://img.shields.io/badge/▶_Watch_Full_Demo_-red?style=for-the-badge)](DEMO_WALKTHROUGH.mp4)
-
-📥 Download: [DEMO_WALKTHROUGH.mp4](DEMO_WALKTHROUGH.mp4) - Complete system walkthrough (24.5 MB)
+<video width="100%" controls style="border: 2px solid #007bff; border-radius: 8px; margin: 20px 0;">
+  <source src="DEMO_WALKTHROUGH.mp4" type="video/mp4">
+  Your browser does not support the video tag. <a href="DEMO_WALKTHROUGH.mp4">Download video</a>
+</video>
 
 **In this video, you'll see:**
 - 🎤 How to upload audio files to the live platform
