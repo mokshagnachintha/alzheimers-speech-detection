@@ -16,10 +16,9 @@ Upload an audio file of someone describing the Cookie Theft image and get instan
 
 **Watch our comprehensive video tutorial** showing the entire system in action:
 
-<video width="100%" controls style="border: 2px solid #007bff; border-radius: 8px; margin: 20px 0;">
-  <source src="DEMO_WALKTHROUGH.mp4" type="video/mp4">
-  Your browser does not support the video tag. <a href="DEMO_WALKTHROUGH.mp4">Download video</a>
-</video>
+[![Watch the Demo - Click to Play](https://img.shields.io/badge/▶%20Click%20Here%20to%20Watch%20Demo%20Video-FF0000?style=for-the-badge&logo=youtube)](https://github.com/mokshagnachintha/alzheimers-speech-detection/raw/master/DEMO_WALKTHROUGH.mp4)
+
+**or [Download Video (24.5 MB)](DEMO_WALKTHROUGH.mp4)**
 
 **In this video, you'll see:**
 - 🎤 How to upload audio files to the live platform
