@@ -48,7 +48,6 @@ wheels/
 *.cha
 *.wav
 *.mp3
-*.mp4
 *.pth
 *.pt
 *.pkl
