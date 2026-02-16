@@ -8,14 +8,6 @@ Your Alzheimer's Disease detection project has been professionally transformed i
 
 ## 📁 File Transformations
 
-### Before
-```
-all-models-run (1).ipynb
-help (1).ipynb
-Final Review Paper - 16 Model Comparisions.docx
-Screen Recording 2026-02-16 193748.mp4
-```
-
 ### After (Professional GitHub Structure)
 ```
 model-comparison.ipynb                    ← Systematic 16-model evaluation
