@@ -1,0 +1,122 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# PyCharm
+.idea/
+*.swp
+*.swo
+*~
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Data and Models
+*.csv
+*.xlsx
+*.cha
+*.wav
+*.mp3
+*.mp4
+*.pth
+*.pt
+*.pkl
+*.pickle
+model_results/
+model_results_complete/
+processed_spectrograms/
+results/
+
+# Large Files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# RStudio
+.Rproj.user/
+
+# Keep this training data for reproducibility, but typically ignored
+# data/raw/
+# data/processed/
+
+# But ignore specific private folders
+private/
+sensitive/
+deprecated/
+
+# Environment configuration
+.env
+.env.local
+config.local.ini
+
+# Credentials (NEVER commit these)
+*credentials*
+*secret*
+*token*
+
+# Temporary model checkpoints (keep best only)
+checkpoints/*/
+!checkpoints/best/
+
+# Documentation builds
+docs/_build/
+site/
+
+# Test outputs
+htmlcov/
+.pytest_cache/
+.coverage
+coverage.xml
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
